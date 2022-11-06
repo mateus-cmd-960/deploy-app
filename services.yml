@@ -1,0 +1,24 @@
+apiversion: v1
+kind: Service
+metadata:
+  name: php
+spec:
+  selector:
+    app: php
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+
+---
+
+apiversion: v1
+kind: Service
+metadata:
+  name: mysql-conection
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+  clusterIP: None 
